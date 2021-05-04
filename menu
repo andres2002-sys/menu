@@ -1,0 +1,132 @@
+import os
+def menu():
+    while True:
+        print("=====ESTE ES UN MENU QUE CONTIENE VARIOS PROGRAMAS=====")
+        print("   ****SELECCIONE EL PROGRAMA QUE DESEA EJECUTAR****")
+        print("PULSE '1' PARA GENERAR LA TABLA DE MULTIPLICAR DEL 1 AL 10 HASTA EL 10")
+        print("PULSE '2' PARA DETECTAR LOS NUMEROS PRIMOS ENTRE 1 Y 1000")
+        print("PULSE '3' PARA MOSTRAR EL FACTORIAL DE UN NUMERO")
+        print("PULSE '4' PARA DETECTAR LOS NUMEROS PERFECTOS ENTRE 1 Y 10000")
+        print("PULSE '5' PARA MOSTRAR LA SERIE DE FIBONACCI DE 15 TERMINOS")
+        print("PULSE '6' PARA ADIVINAR UN NUMERO")
+        print("PULSE '7' PARA REALIZAR UNA SUCESION")
+        print("PULSE 'ESC' PARA SALIR")
+        seleccion=int(input(".:INGRESE SU SELECCION: " ))
+        if seleccion == chr(27):  
+            os.system("cls")
+            print(".:MUCHAS GRACIAS POR TODO:.")
+            print(".:BY, ANDRES TRESPALACIOS:.")
+            print(".:2021:.")
+            break
+        elif seleccion==1:
+            os.system("cls")
+            print("===TABLA DE MULTIPLICAR DEL 1 AL 10===")
+            print("pulse '1' si quiere conocer la tabla de un número en específico ")
+            print("pulse '2' si quiere conocer todas las tablas entre el 1 y el 10 ")
+            seleccion_uno=int(input(".:INGRESE SU SELECCION: "))
+            if seleccion_uno == 1:
+                os.system("cls")
+                numero=int(input("DIGITE EL NUMERO QUE DESEA CONOCER SU TABLA DE MULTIPLICAR: "))
+                print("___ TABLA DEL ", numero,"____")
+                for m in range (0,11):
+                    producto=m*numero               
+                    print(numero, " X ", m, " = ", producto)
+                    print("---BY ANDRES TRESPALACOS, 2021---")
+                    input()
+                    os.system("cls")
+                break                 
+            elif seleccion_uno == 2:
+                os.system("cls")
+                mult_inicio = 1
+                mult_final = 10
+                inicio = 0
+                final = 10
+                for m1 in range (mult_inicio, mult_final + 1):
+                    print ("==TABLA DE MULTIPLICAR DEL ", m1," ==")
+                    for m2 in range (inicio, final+1):               
+                        print(m1, " X ", m2, " = ", m1 * m2)
+                    print("---BY ANDRES TRESPALACOS, 2021---")
+                input()    
+                break        
+            if seleccion_uno == chr(13):  
+                os.system("cls")
+                break
+        elif seleccion==2:
+            os.system("cls")
+            print(".:Numeros Primos del 1 al 1000: ")
+            for m in range (1, 1001,1):       
+                contador=0
+                for n in range( 1, m+1, 1):
+                    if (m%n==0):
+                        contador=contador+1
+                if contador==2:
+                    print(m,"Es primo")
+                input()  
+            break
+        elif seleccion==3:
+            os.system("cls")
+            print("===FACTORIAL DE UN NUMERO===")
+            numero=int(input(".:INGRESE EL NUMERO AL QUE DESEA CALCULAR SU FACORIAL:"))
+            factorial=1
+            for f in range(1, numero + 1):
+                factorial= factorial * f
+            print(".:EL factorial de ", numero, " ES: ", factorial)        
+            input(
+                    )
+            break
+        elif seleccion==4:
+            print("===NUMEROS PERFECTOS ENTRE 1 Y 10000===")
+            for p in range (1,10001):
+                m=0
+                for n in range(1, (p//2)+1):
+                    if((p%n) == 0):
+                        m = m+n
+                if m==p:
+                    print("El numero",str(p),"es perfecto")
+            input()
+            break       
+        elif seleccion==5:
+            os.system("cls")
+            print("===SERIE DE FIBONACCI:. .:PRIMEROS 15 TERMINOS===")
+            a=0
+            b=1 
+            c=0
+            for i in range (0,15):
+                print (i," = ",a)
+                c=b
+                b=a
+                a=b+c
+            input()
+            break
+        elif seleccion==6:
+            os.system("cls")
+            print("===ADIVINAR UN NUMERO===")        
+            print ("¿podras adivinar que numero?\n")     
+            a = int(input("digita un numero inicial: "))     
+            b = int(input("digita un numero final"))   
+            numero=17    
+            while a and b !=17: 
+                if a and b !=17:
+                    print ("¡UPSS¡ Sigue intentando\n")
+                    a  +=1
+                    b  +=1
+                a = int(input("digita un numero inicial: "))     
+                b = int(input("digita un numero final: ")) 
+
+            print("\n¡Bien hecho, eres libre!")
+            print("El numero correcto es: ", numero)
+        elif seleccion==7:
+            os.system("cls")
+            print("===REALIZAR UNA SUCESION===")
+            def funcion(n):
+                if n == 0:
+                    return 4
+                elif n%2 == 0:
+                    return funcion(n-1) + 2
+                else:
+                    return funcion(n-1) * 2
+            termino= int(input("Introduzca el número de N terminos en la sucesion: "))
+            sucesion = []
+            for i in range(1,termino):
+                sucesion.append(funcion(i))
+            print("La sucesión es: \n", sucesion)   
